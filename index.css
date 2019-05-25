@@ -1,0 +1,92 @@
+:root {
+  --themePrimary: #c46bf3;
+  --themeLighterAlt: #08040a;
+  --themeLighter: #1f1127;
+  --themeLight: #3b2049;
+  --themeTertiary: #754092;
+  --themeSecondary: #ac5ed6;
+  --themeDarkAlt: #c979f4;
+  --themeDark: #d18df6;
+  --themeDarker: #ddabf8;
+  --neutralLighterAlt: #0b0b0b;
+  --neutralLighter: #151515;
+  --neutralLight: #252525;
+  --neutralQuaternaryAlt: #2f2f2f;
+  --neutralQuaternary: #373737;
+  --neutralTertiaryAlt: #595959;
+  --neutralTertiary: #c8c8c8;
+  --neutralSecondary: #d0d0d0;
+  --neutralPrimaryAlt: #dadada;
+  --neutralPrimary: #ffffff;
+  --neutralDark: #f4f4f4;
+  --black: #f8f8f8;
+  --white: #000000;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--neutralPrimary);
+
+  font-family: "Lato", "Helvetica Neue", Helvetica, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 50px 21px;
+
+  background: url("./backgrounds/waterfall-opacity.jpg") bottom left;
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animatedBackground 50s linear infinite;
+  animation-play-state: paused;
+}
+
+#main.playing {
+  animation-play-state: running;
+}
+
+.play {
+  margin: 50px;
+  margin-bottom: 100px;
+  transform: scale(1.5);
+  width: 74px;
+  height: 74px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 37px 0px 37px 74px;
+  border-color: transparent transparent transparent var(--themePrimary);
+  transition: all 100ms ease-in-out;
+}
+
+.pause {
+  border-style: double;
+  border-width: 0px 0px 0px 60px;
+}

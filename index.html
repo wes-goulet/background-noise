@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <meta
+      name="Description"
+      content="A simple white noise app that plays in the background."
+    />
+
+    <!-- service worker registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log("Active service worker found, no need to register");
+        } else {
+          navigator.serviceWorker
+            .register("sw.js", { scope: "./" })
+            .then(reg => {
+              console.log(
+                `Service worker has been registered for scope: ${reg.scope}`
+              );
+            });
+        }
+      }
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+    </style>
+
+    <!-- PWA Stuff -->
+
+    <!-- disabling standalone for ios since it doesn't support bg audio -->
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- manifest icons generated from https://app-manifest.firebaseapp.com/ -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/logo180.png" />
+
+    <!-- Splash Screens generated with https://apetools.webprofusion.com/#/tools/imagegorilla -->
+    <!-- Another good tool: https://appsco.pe/developer/splash-screens -->
+    <!-- iPhone <5 SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage~iphone-320x480.png"
+      media="(device-width: 320px) and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone <5 (Retina) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage~iphone_640x960.png"
+      media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone 5 (Retina) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-568h@2x~iphone_640x1136.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone 6 (Retina, portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-750@2x~iphone6-portrait_750x1334.png"
+      media="(device-width: 375px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone 6 (Retina, landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-750@2x~iphone6-landscape_1334x750.png"
+      media="(device-width: 375px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone 6s (Retina, portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-1242@3x~iphone6s-portrait_1242x2208.png"
+      media="(device-width: 414px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone 6s (Retina, landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-1242@3x~iphone6s-landscape_2208x1242.png"
+      media="(device-width: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone X (portrait) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-1125@3x~iphoneX-portrait_1125x2436.png"
+      media="(device-width: 375px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone X (landscape) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-2436@3x~iphoneX-landscape_2436x1125.png"
+      media="(device-width: 375px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone Xr (portrait) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-828@2x~iphoneXr-portrait_828x1792.png"
+      media="(device-width: 414px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone Xr (landscape) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-1792@2x~iphoneXr-landscape_1792x828.png"
+      media="(device-width: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone Xs Max (portrait) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-1242@3x~iphoneXsMax-portrait_1242x2688.png"
+      media="(device-width: 414px) and (device-height: 896) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPhone Xs Max (landscape) SPLASHSCREEN -->
+    <link
+      href="./splash/LaunchImage-2688@3x~iphoneXsMax-landscape_2688x1242.png"
+      media="(device-width: 414px) and (device-height: 896) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Portrait~ipad_768x1024.png"
+      media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape~ipad_1024x768.png"
+      media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape~ipad_1024x748.png"
+      media="(device-width: 748px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (Retina, portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Portrait@2x~ipad_1536x2048.png"
+      media="(device-width: 768) and (device-height: 1024) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (Retina, portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Portrait@2x~ipad_1536x2008.png"
+      media="(device-width: 768) and (device-height: 1004) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad Pro 10.5 (portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Portrait@2x~ipad_1668x2224.png"
+      media="(device-width: 834) and (device-height: 1112) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad Pro 12.9 (portrait) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Portrait@2x~ipad_1536x2008.png"
+      media="(device-width: 1024) and (device-height: 1366) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (Retina, landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape@2x~ipad_2048x1536.png"
+      media="(device-width: 768) and (device-height: 1024) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad (Retina, landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape@2x~ipad_2048x1496.png"
+      media="(device-width: 748) and (device-height: 1024) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad Pro 10.5 (landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape@2x~ipad_2224x1668.png"
+      media="(device-width: 834) and (device-height: 1112) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- iPad Pro 12.9 (landscape) SPLASHSCREEN-->
+    <link
+      href="./splash/LaunchImage-Landscape@2x~ipad_2732x2048.png"
+      media="(device-width: 1024) and (device-height: 1366) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <!-- /PWA Stuff -->
+
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <title>Background Noise</title>
+  </head>
+
+  <body>
+    <div id="main">
+      <div>
+        <h2>Background Noise</h2>
+        <p>A simple white noise app</p>
+      </div>
+      <div id="play-button" class="play"></div>
+      <audio id="white-audio" preload="auto" loop>
+        <source src="./sounds/WhiteNoise.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
