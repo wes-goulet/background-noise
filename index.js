@@ -4,9 +4,14 @@
 const audio = document.getElementById("white-audio");
 
 /**
- * @type HTMLButtonElement
+ * @type HTMLDivElement
  */
 const playButton = document.getElementById("play-button");
+
+/**
+ * @type HTMLDivElement
+ */
+const playInnerButton = document.getElementById("play-inner-button");
 
 /**
  * @type Element
@@ -31,11 +36,11 @@ playButton.addEventListener("click", () => {
 });
 
 audio.addEventListener("play", () => {
-  playButton.classList.add("pause");
+  playInnerButton.classList.add("pause");
   mainElement.classList.add("playing");
 });
 
 audio.addEventListener("pause", () => {
-  playButton.classList.remove("pause");
+  playInnerButton.classList.remove("pause");
   mainElement.classList.remove("playing");
 });
