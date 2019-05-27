@@ -93,7 +93,6 @@ body {
   padding: 2rem;
   border: 0.2rem solid var(--themeTertiary);
   border-radius: 50%;
-  filter: drop-shadow(0 0 5rem rgba(255, 255, 255, 0.3));
 }
 
 .play {
