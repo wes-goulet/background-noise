@@ -73,6 +73,17 @@ body {
   animation-play-state: running;
 }
 
+#main > div:first-of-type {
+  width: 100%;
+}
+
+#header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #play-button {
   display: flex;
   justify-content: center;
@@ -101,4 +112,9 @@ body {
   height: 64px;
   border-style: double;
   border-width: 0px 0px 0px 64px;
+}
+
+.subtle-text {
+  font-size: 12px;
+  color: var(--neutralTertiary);
 }
