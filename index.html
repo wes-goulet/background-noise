@@ -29,6 +29,24 @@
       }
     </script>
 
+    <script
+      type="module"
+      src="https://unpkg.com/wc-menu-button@3.0.1/dist/esm/wc-menu-button.min.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/wc-menu-button@3.0.1/dist/iife/wc-menu-button.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/side-drawer@2.2.1/dist/esm/side-drawer.min.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/side-drawer@2.2.1/dist/iife/side-drawer.min.js"
+    ></script>
+
     <!-- PWA Stuff -->
 
     <!-- disabling standalone for ios since it doesn't support bg audio -->
@@ -216,9 +234,9 @@
   <body>
     <div id="main">
       <div>
-        <div id="header-container">
+        <div class="row-container">
           <h2>Background Noise</h2>
-          <div class="subtle-text">v1.1</div>
+          <wc-menu-button id="menu-button"></wc-menu-button>
         </div>
         <p>A simple white noise app</p>
       </div>
@@ -229,6 +247,42 @@
         <source src="./sounds/WhiteNoise.mp3" type="audio/mpeg" />
       </audio>
     </div>
+    <side-drawer id="drawer">
+      <div id="drawer-container">
+        <div class="column-container">
+          <h2>
+            Background Noise
+          </h2>
+          <div>v1.2</div>
+        </div>
+        <div class="column-container">
+          <a
+            href="https://github.com/wes566/background-noise/issues/new?assignees=&labels=bug&template=bug_report.md&title="
+            target="_blank"
+            ><div class="selectable-row">
+              <div>
+                Report Bug
+              </div>
+              <div class="rotate90">
+                &#8689;
+              </div>
+            </div></a
+          >
+          <a
+            href="https://github.com/wes566/background-noise/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+            target="_blank"
+            ><div class="selectable-row">
+              <div>
+                Suggest a Feature
+              </div>
+              <div class="rotate90">
+                &#8689;
+              </div>
+            </div></a
+          >
+        </div>
+      </div>
+    </side-drawer>
     <script src="./index.js"></script>
   </body>
 </html>
