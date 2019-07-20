@@ -65,3 +65,13 @@ drawer.addEventListener("open", ev => {
 drawer.addEventListener("close", ev => {
   menuButton.open = false;
 });
+
+document.addEventListener('keydown', ev => {
+  if(ev.keyCode === 32) {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+})
