@@ -209,26 +209,6 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
     <title>Background Noise</title>
-
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-      (function(f, a, t, h, o, m) {
-        a[h] =
-          a[h] ||
-          function() {
-            (a[h].q = a[h].q || []).push(arguments);
-          };
-        (o = f.createElement("script")),
-          (m = f.getElementsByTagName("script")[0]);
-        o.async = 1;
-        o.src = t;
-        o.id = "fathom-script";
-        m.parentNode.insertBefore(o, m);
-      })(document, window, "//fathomlytics.herokuapp.com/tracker.js", "fathom");
-      fathom("set", "siteId", "VDJHP");
-      fathom("trackPageview");
-    </script>
-    <!-- / Fathom -->
   </head>
 
   <body>
@@ -284,5 +264,24 @@
       </div>
     </side-drawer>
     <script src="./index.js"></script>
+    <!-- Fathom - simple website analytics - https://usefathom.com -->
+    <script>
+      (function(f, a, t, h, o, m) {
+        a[h] =
+          a[h] ||
+          function() {
+            (a[h].q = a[h].q || []).push(arguments);
+          };
+        (o = f.createElement("script")),
+          (m = f.getElementsByTagName("script")[0]);
+        o.async = 1;
+        o.src = t;
+        o.id = "fathom-script";
+        m.parentNode.insertBefore(o, m);
+      })(document, window, "//cdn.usefathom.com/tracker.js", "fathom");
+      fathom("set", "siteId", "VKONPIRZ");
+      fathom("trackPageview");
+    </script>
+    <!-- / Fathom -->
   </body>
 </html>
