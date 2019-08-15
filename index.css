@@ -25,15 +25,6 @@
   --wc-menu-button-color: var(--neutralPrimary);
 }
 
-@keyframes animatedBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
-}
-
 html,
 body {
   height: 100%;
@@ -64,17 +55,6 @@ body {
   align-items: flex-start;
   padding: 28px;
   box-sizing: border-box;
-
-  background: url("./backgrounds/waterfall-opacity.jpg") bottom left;
-  background-position: 0px 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  animation: animatedBackground 50s linear infinite;
-  animation-play-state: paused;
-}
-
-#main.playing {
-  animation-play-state: running;
 }
 
 #main > div:first-of-type {
