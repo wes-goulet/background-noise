@@ -72,6 +72,14 @@ body {
   border-radius: 50%;
 }
 
+#install-button {
+  padding: 1rem 0;
+
+  font-weight: 600;
+  font-size: 1.2rem;
+  --install-button-color: var(--themeTertiary);
+}
+
 .play {
   height: 0;
   margin-left: 10px;
