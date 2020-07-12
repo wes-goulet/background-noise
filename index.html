@@ -20,7 +20,7 @@
         } else {
           navigator.serviceWorker
             .register("sw.js", { scope: "./" })
-            .then(reg => {
+            .then((reg) => {
               console.log(
                 `Service worker has been registered for scope: ${reg.scope}`
               );
@@ -28,24 +28,6 @@
         }
       }
     </script>
-
-    <script
-      type="module"
-      src="https://unpkg.com/wc-menu-button@3.0.1/dist/esm/wc-menu-button.min.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/wc-menu-button@3.0.1/dist/iife/wc-menu-button.min.js"
-    ></script>
-
-    <script
-      type="module"
-      src="https://unpkg.com/side-drawer@2.2.2/dist/esm/side-drawer.min.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/side-drawer@2.2.2/dist/iife/side-drawer.min.js"
-    ></script>
 
     <!-- PWA Stuff -->
 
@@ -209,6 +191,24 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
     <title>Background Noise</title>
+
+    <script
+      type="module"
+      src="https://unpkg.com/wc-menu-button@3.0.1/dist/esm/wc-menu-button.min.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/wc-menu-button@3.0.1/dist/iife/wc-menu-button.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/side-drawer@2.2.2/dist/esm/side-drawer.min.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/side-drawer@2.2.2/dist/iife/side-drawer.min.js"
+    ></script>
   </head>
 
   <body>
@@ -233,7 +233,7 @@
           <h2>
             Background Noise
           </h2>
-          <div>v1.2</div>
+          <div>v1.3</div>
         </div>
         <div class="column-container">
           <a
@@ -264,24 +264,10 @@
       </div>
     </side-drawer>
     <script src="./index.js"></script>
-    <!-- Fathom - simple website analytics - https://usefathom.com -->
-    <script>
-      (function(f, a, t, h, o, m) {
-        a[h] =
-          a[h] ||
-          function() {
-            (a[h].q = a[h].q || []).push(arguments);
-          };
-        (o = f.createElement("script")),
-          (m = f.getElementsByTagName("script")[0]);
-        o.async = 1;
-        o.src = t;
-        o.id = "fathom-script";
-        m.parentNode.insertBefore(o, m);
-      })(document, window, "//cdn.usefathom.com/tracker.js", "fathom");
-      fathom("set", "siteId", "VKONPIRZ");
-      fathom("trackPageview");
-    </script>
-    <!-- / Fathom -->
+    <script
+      src="https://falcon.backgroundnoise.app/script.js"
+      site="VKONPIRZ"
+      defer
+    ></script>
   </body>
 </html>
