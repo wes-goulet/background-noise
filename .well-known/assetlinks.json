@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "app.backgroundnoise.twa",
       "sha256_cert_fingerprints": [
-        "6E:09:1A:58:87:88:84:FD:7B:E8:0A:9A:61:E8:4A:6A:A3:60:BF:7C:6A:7E:31:09:4D:7D:ED:0B:9E:53:B7:EB"
+        "6E:09:1A:58:87:88:84:FD:7B:E8:0A:9A:61:E8:4A:6A:A3:60:BF:7C:6A:7E:31:09:4D:7D:ED:0B:9E:53:B7:EB",
+        "40:9F:CC:30:23:4C:04:1D:6A:E6:D8:BB:6E:4A:B9:F7:02:71:2B:A6:09:46:FB:1B:93:85:A9:8D:29:3F:1E:D2"
       ]
     }
   }
