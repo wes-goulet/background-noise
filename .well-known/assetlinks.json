@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.backgroundnoise.twa",
+      "sha256_cert_fingerprints": [
+        "6E:09:1A:58:87:88:84:FD:7B:E8:0A:9A:61:E8:4A:6A:A3:60:BF:7C:6A:7E:31:09:4D:7D:ED:0B:9E:53:B7:EB"
+      ]
+    }
+  }
+]
