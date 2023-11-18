@@ -56,22 +56,22 @@ audio.addEventListener("pause", () => {
 });
 
 // side drawer setup
-menuButton.addEventListener("opened", ev => {
+menuButton.addEventListener("opened", (ev) => {
   drawer.open = true;
 });
-drawer.addEventListener("open", ev => {
+drawer.addEventListener("open", (ev) => {
   menuButton.open = true;
 });
-drawer.addEventListener("close", ev => {
+drawer.addEventListener("close", (ev) => {
   menuButton.open = false;
 });
 
-document.addEventListener('keydown', ev => {
-  if(ev.keyCode === 32) {
+document.addEventListener("keydown", (ev) => {
+  if (ev.code === "Space") {
     if (audio.paused) {
       audio.play();
     } else {
       audio.pause();
     }
   }
-})
+});
