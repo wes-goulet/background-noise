@@ -1,3 +1,8 @@
+import version from "/version.js";
+
+const version_div = document.getElementById("version");
+version_div.innerText = `v${version}`;
+
 /**
  * @type HTMLAudioElement
  */
