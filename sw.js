@@ -4,22 +4,19 @@
 /// <reference lib="esnext" />
 /// <reference lib="webworker" />
 
-// @ts-ignore
-import { version } from "/app-info.js";
-
 const sw = /** @type {ServiceWorkerGlobalScope} */ (
   /** @type {unknown} */ (self)
 );
 
-// static caches
-const CACHE_NAME = `cache-${version}`;
+// static cache - if you ever want to invalidate this cache then change the
+// name of the cache (e.g. static-cache-v2)
+const CACHE_NAME = `static-cache-v1`;
 
 const ASSETS = [
   "/index.html",
   "/index.js",
   "/index.css",
   "/sounds/WhiteNoise.mp3",
-  "/backgrounds/waterfall-opacity.jpg",
 ];
 
 /**
@@ -30,17 +27,9 @@ const ASSETS = [
 sw.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
-      try {
-        // Create a new cache and add all files to it
-        const cache = await caches.open(CACHE_NAME);
-        await cache.addAll(ASSETS);
-      } catch (error) {
-        // if there was an error then it's possible that version of the server
-        // went away, so check for a new version before barfing/invalidating
-        // this current sw version
-        await sw.registration.update();
-        throw error;
-      }
+      // Create a new cache (if not already present) and add all files to it
+      const cache = await caches.open(CACHE_NAME);
+      await cache.addAll(ASSETS);
     })()
   );
 });
