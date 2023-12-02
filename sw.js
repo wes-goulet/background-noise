@@ -30,6 +30,9 @@ sw.addEventListener("install", (event) => {
       // Create a new cache (if not already present) and add all files to it
       const cache = await caches.open(CACHE_NAME);
       await cache.addAll(ASSETS);
+
+      // activate the new SW immediately
+      await sw.skipWaiting();
     })()
   );
 });
@@ -79,6 +82,11 @@ sw.addEventListener("fetch", (event) => {
   }
 
   const url = new URL(event.request.url);
+
+  // ignore requests from chrome extensions
+  if (url.protocol === "chrome-extension:") {
+    return;
+  }
 
   event.respondWith(
     (async () => {

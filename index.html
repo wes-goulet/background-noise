@@ -15,11 +15,9 @@
     <!-- service worker registration -->
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("sw.js", { type: "module" })
-          .then((reg) => {
-            console.log(`Service worker has been registered`);
-          });
+        navigator.serviceWorker.register("sw.js").then((reg) => {
+          console.log(`Service worker has been registered`);
+        });
       }
     </script>
 
@@ -201,9 +199,9 @@
         </div>
         <p>A simple white noise app</p>
       </div>
-      <div id="play-button">
+      <button id="play-button" type="button" title="Play / Pause">
         <div id="play-inner-button" class="play"></div>
-      </div>
+      </button>
       <audio id="white-audio" preload="auto" loop>
         <source src="./sounds/WhiteNoise.mp3" type="audio/mpeg" />
       </audio>
@@ -236,7 +234,7 @@
         </div>
       </div>
     </side-drawer>
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
     <script
       src="https://cdn.usefathom.com/script.js"
       data-site="VKONPIRZ"

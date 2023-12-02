@@ -72,7 +72,7 @@ drawer.addEventListener("close", (ev) => {
 });
 
 document.addEventListener("keydown", (ev) => {
-  if (ev.code === "Space") {
+  if (ev.code === "Space" && ev.target === document.body) {
     if (audio.paused) {
       audio.play();
     } else {
