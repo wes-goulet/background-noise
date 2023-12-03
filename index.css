@@ -181,3 +181,10 @@ a:visited {
 .rotate90 {
   transform: rotate(90deg);
 }
+
+@media all and (display-mode: standalone) {
+  #install-button,
+  #install-dialog {
+    display: none;
+  }
+}
