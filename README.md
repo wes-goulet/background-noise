@@ -4,11 +4,7 @@ A simple white noise app that plays in the background.
 
 ## Web App
 
-The goal is to make a web app that can run on any device, leveraging PWA capabilities on each platform, where possible...
-
-### iOS
-
-Unfortunately, "standalone" web apps don't continue playing background audio on iOS. If the web app is running in an actual Safari instance then it will continue to play in the background.
+The goal is to make a web app that can run on any device, leveraging PWA capabilities on each platform.
 
 ## Theme
 

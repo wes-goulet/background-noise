@@ -15,24 +15,12 @@
     <!-- service worker registration -->
     <script>
       if ("serviceWorker" in navigator) {
-        if (navigator.serviceWorker.controller) {
-          console.log("Active service worker found, no need to register");
-        } else {
-          navigator.serviceWorker
-            .register("sw.js", { scope: "./" })
-            .then((reg) => {
-              console.log(
-                `Service worker has been registered for scope: ${reg.scope}`
-              );
-            });
-        }
+        navigator.serviceWorker.register("sw.js").then((reg) => {
+          console.log(`Service worker has been registered`);
+        });
       }
     </script>
 
-    <!-- PWA Stuff -->
-
-    <!-- disabling standalone for ios since it doesn't support bg audio -->
-    <meta name="apple-mobile-web-app-capable" content="no" />
     <link rel="manifest" href="./manifest.json" />
 
     <!-- manifest icons generated from https://app-manifest.firebaseapp.com/ -->
@@ -192,22 +180,13 @@
 
     <title>Background Noise</title>
 
-    <script
-      type="module"
-      src="https://unpkg.com/wc-menu-button@3.0.1/dist/esm/wc-menu-button.min.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/wc-menu-button@3.0.1/dist/iife/wc-menu-button.min.js"
-    ></script>
+    <script type="module" src="https://unpkg.com/wc-menu-button@5.0.0"></script>
+
+    <script type="module" src="https://unpkg.com/side-drawer@4.1.0"></script>
 
     <script
       type="module"
-      src="https://unpkg.com/side-drawer@2.2.2/dist/esm/side-drawer.min.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/side-drawer@2.2.2/dist/iife/side-drawer.min.js"
+      src="https://unpkg.com/@storedotapp/pwa-install-dialog@1.1.2/index.mjs"
     ></script>
   </head>
 
@@ -218,11 +197,14 @@
           <h2>Background Noise</h2>
           <wc-menu-button id="menu-button"></wc-menu-button>
         </div>
-        <p>A simple white noise app</p>
+        <p>A simple white noise app.</p>
+        <button id="install-button" type="button" title="Install" hidden>
+          Install as app
+        </button>
       </div>
-      <div id="play-button">
+      <button id="play-button" type="button" title="Play / Pause">
         <div id="play-inner-button" class="play"></div>
-      </div>
+      </button>
       <audio id="white-audio" preload="auto" loop>
         <source src="./sounds/WhiteNoise.mp3" type="audio/mpeg" />
       </audio>
@@ -231,11 +213,11 @@
       <div id="drawer-container">
         <div class="column-container">
           <h2>Background Noise</h2>
-          <div>v1.3</div>
+          <div id="version"></div>
         </div>
         <div class="column-container">
           <a
-            href="https://github.com/wes566/background-noise/issues/new?assignees=&labels=bug&template=bug_report.md&title="
+            href="https://github.com/wes-goulet/background-noise/issues/new?assignees=&labels=bug&template=bug_report.md&title="
             target="_blank"
             rel="noopener"
             ><div class="selectable-row">
@@ -244,7 +226,7 @@
             </div></a
           >
           <a
-            href="https://github.com/wes566/background-noise/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+            href="https://github.com/wes-goulet/background-noise/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
             target="_blank"
             rel="noopener"
             ><div class="selectable-row">
@@ -255,10 +237,14 @@
         </div>
       </div>
     </side-drawer>
-    <script src="./index.js"></script>
+    <pwa-install-dialog
+      id="install-dialog"
+      app="backgroundnoise-app"
+    ></pwa-install-dialog>
+    <script src="./index.js" type="module"></script>
     <script
       src="https://cdn.usefathom.com/script.js"
-      site="VKONPIRZ"
+      data-site="VKONPIRZ"
       defer
     ></script>
   </body>

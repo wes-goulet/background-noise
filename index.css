@@ -19,8 +19,8 @@
   --neutralPrimaryAlt: #dadada;
   --neutralPrimary: #ffffff;
   --neutralDark: #f4f4f4;
-  --black: #f8f8f8;
-  --white: #000000;
+  --white: #f8f8f8;
+  --black: #000000;
 
   --wc-menu-button-color: var(--neutralPrimary);
 }
@@ -35,7 +35,7 @@ body {
 body {
   overscroll-behavior-y: none;
 
-  background-color: var(--white);
+  background-color: var(--black);
   color: var(--neutralPrimary);
 
   font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont,
@@ -62,6 +62,7 @@ body {
 }
 
 #play-button {
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,6 +71,26 @@ body {
   padding: 2rem;
   border: 0.2rem solid var(--themeTertiary);
   border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    border: 0.2rem solid var(--white);
+  }
+}
+
+button:not(#play-button) {
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  color: var(--themePrimary);
+
+  border: 1px solid;
+  font-size: 1.1rem;
+
+  &:hover,
+  &:focus {
+    background-color: var(--themePrimary);
+    color: var(--white);
+  }
 }
 
 .play {
@@ -101,8 +122,8 @@ wc-menu-button {
 
 #drawer-container {
   height: 100%;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
 
   display: flex;
   flex-direction: column;
