@@ -186,7 +186,7 @@
 
     <script
       type="module"
-      src="https://unpkg.com/@storedotapp/pwa-install-dialog@1.1.1/index.mjs"
+      src="https://unpkg.com/@storedotapp/pwa-install-dialog@1.1.2/index.mjs"
     ></script>
   </head>
 
@@ -197,7 +197,10 @@
           <h2>Background Noise</h2>
           <wc-menu-button id="menu-button"></wc-menu-button>
         </div>
-        <p>A simple white noise app</p>
+        <p>A simple white noise app.</p>
+        <button id="install-button" type="button" title="Install" hidden>
+          Install as app
+        </button>
       </div>
       <button id="play-button" type="button" title="Play / Pause">
         <div id="play-inner-button" class="play"></div>
@@ -234,6 +237,10 @@
         </div>
       </div>
     </side-drawer>
+    <pwa-install-dialog
+      id="install-dialog"
+      app="backgroundnoise-app"
+    ></pwa-install-dialog>
     <script src="./index.js" type="module"></script>
     <script
       src="https://cdn.usefathom.com/script.js"

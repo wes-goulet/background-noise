@@ -33,6 +33,19 @@ const menuButton = document.getElementById("menu-button");
  */
 const drawer = document.getElementById("drawer");
 
+/** @type HTMLButtonElement */
+const installDialog = document.querySelector("#install-dialog");
+/** @type HTMLElement */
+const installButton = document.querySelector("#install-button");
+
+installDialog.addEventListener("ready", () => {
+  installButton.removeAttribute("hidden");
+});
+
+installButton.addEventListener("click", () => {
+  installDialog.show();
+});
+
 audio.addEventListener("timeupdate", () => {
   // if 1 second left in audio track reset track to 0
   // so it's continuous
